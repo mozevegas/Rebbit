@@ -22,3 +22,20 @@ select,
 textarea {
     max-width: 280px;
 }
+
+body {
+    background-color: #667B88;
+}
+
+.navbar-inverse {
+    background-color: #495861;
+}
+
+body {
+    font-family: 'Crete Round', serif;
+}
+
+h1 {
+    font-family: 'Monoton', cursive;
+    font-size: 70px;
+}

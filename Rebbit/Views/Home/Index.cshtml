@@ -4,26 +4,36 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
-    <h1>REBBIT</h1>
+<div class="alert alert-info">
+        <h1>REBBIT</h1>
 </div>
 
 @if (HttpContext.Current.User.Identity.IsAuthenticated)
 {
-    <div>@Html.ActionLink("Create New", "Create", "Postzs")</div>
+    <div class="alert alert-warning">
+        <h3>@Html.ActionLink("Add a Post!", "Create", "Postzs")</h3>
+    </div>
 }
 
 @foreach (var item in Model)
 {
-    <div class="row">
-        <div class="col-md-12">
+    <div class="panel panel-default">
+        <div class="panel-body">
             <div class="media">
                 <div class="media-left">
-                        <img class="media-object" src="@item.ImageUrl" alt="Alternate Text" style="width: 60px" />
+                    <img class="media-object" src="@item.ImageUrl" alt="Alternate Text" style="width: 60px" />
+                    <hr/>
+                    <button type="button" class="btn-xs btn-success">
+                        <span class="glyphicon glyphicon-chevron-up"></span>
+                    </button>&nbsp;
+                    <button type="button" class="btn-xs btn-warning">
+                        <span class="glyphicon glyphicon-chevron-down"></span>
+                    </button>
                 </div>
                 <div class="media-body">
-                    <h4 class="media-heading">@item.Title</h4>
+                    <h2 class="media-heading">@item.Title</h2>
                     <p>@item.Description</p>
+                    <p>@item.TimePosted || Total Votes: @(item.Upvote - item.Downvote)</p>
                 </div>
             </div>
         </div>
