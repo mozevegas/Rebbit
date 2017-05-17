@@ -29,5 +29,7 @@ namespace Rebbit.Models
         {
             return new ApplicationDbContext();
         }
+
+        public DbSet<Postz> RebbitPosts { get; set; }
     }
 }

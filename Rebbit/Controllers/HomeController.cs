@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Rebbit.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,7 +11,8 @@ namespace Rebbit.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            var vm = new ApplicationDbContext().RebbitPosts.OrderByDescending(o => o.TimePosted).ToList();
+            return View(vm);
         }
 
         public ActionResult About()
